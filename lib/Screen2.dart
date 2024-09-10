@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'Screen3.dart';
 class Screen2 extends StatefulWidget {
   const Screen2({super.key});
 
@@ -132,23 +135,27 @@ class _Screen2State extends State<Screen2> {
                     ),
                   ),
                   SizedBox(height: 30.h,),
-                  Container(
-                    width: 385.w,
-                    height: 55.h,
-                    decoration: ShapeDecoration(
-                      color: Colors.green,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  GestureDetector(onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen3()));
+                  },
+                    child: Container(
+                      width: 385.w,
+                      height: 55.h,
+                      decoration: ShapeDecoration(
+                        color: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
-                    ),
-                    child: Center(child: Text('Login',  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w700,
-                      height: 0,
-                    ), )),
+                      child: Center(child: Text('Login',  style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w700,
+                        height: 0,
+                      ), )),
 
+                    ),
                   ),
                   SizedBox(height: 20,),
                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
