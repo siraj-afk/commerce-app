@@ -425,6 +425,26 @@ class _Screen3State extends State<Screen3> {
                         ]
                     ),
                     SizedBox(width: 10.w,),
+                    Container(
+                      width: 180.w,
+                      height: 200.h,
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1, color: Color(0xFF0DA54B)),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text('View All', style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),),
+                      ),
+                    )
                   ],
                 ),
               ),

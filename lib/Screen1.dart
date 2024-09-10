@@ -49,57 +49,55 @@ class _Screen1State extends State<Screen1> {
                                  ),),
               ),
               SizedBox(height: 60.h,),
-              Center(
-                child: Row(
-                  children: [
-                    Container(
+              Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 175.w,
+                    height: 45.h,
+                    decoration: ShapeDecoration(
+                      color: Color(0xFF0DA54B),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+
+                  ),
+                    child: Center(child: Text('Log In', style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w700,
+                      height: 0,
+                    ),)),
+
+                  ),
+                        SizedBox(width: 20.w,),
+                  GestureDetector(onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen2()));
+                  },
+                    child: Container(
                       width: 175.w,
                       height: 45.h,
                       decoration: ShapeDecoration(
-                        color: Color(0xFF0DA54B),
+                        color: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
 
-                    ),
-                      child: Center(child: Text('Log In', style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w700,
-                        height: 0,
-                      ),)),
-
-                    ),
-                          SizedBox(width: 20.w,),
-                    GestureDetector(onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen2()));
-                    },
-                      child: Container(
-                        width: 175.w,
-                        height: 45.h,
-                        decoration: ShapeDecoration(
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-
-                        ),
-                        child: Center(
-                          child: Text('Sign up',style: TextStyle(
-                            color:  Color(0xFF0DA54B),
-                            fontSize: 14,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w700,
-                            height: 0,
-                          ),),
-                        )
                       ),
+                      child: Center(
+                        child: Text('Sign up',style: TextStyle(
+                          color:  Color(0xFF0DA54B),
+                          fontSize: 14,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w700,
+                          height: 0,
+                        ),),
+                      )
                     ),
+                  ),
 
 
-                  ],
-                ),
+                ],
               )],
           ),
         ),
