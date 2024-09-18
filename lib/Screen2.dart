@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Screen3.dart';
+import 'bottomnavigaton.dart';
 class Screen2 extends StatefulWidget {
   const Screen2({super.key});
 
@@ -136,7 +137,7 @@ class _Screen2State extends State<Screen2> {
                   ),
                   SizedBox(height: 30.h,),
                   GestureDetector(onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen3()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Bottomnavigaton()));
                   },
                     child: Container(
                       width: 385.w,

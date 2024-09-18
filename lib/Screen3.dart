@@ -58,9 +58,7 @@ class _Screen3State extends State<Screen3> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0x66E5E5E5),
-                              blurRadius: 10,
-                              offset: Offset(10, 10),
+                              color: Colors.white,
                               spreadRadius: 0,
                             )
                           ],
