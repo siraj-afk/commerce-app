@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Screen8.dart';
@@ -14,7 +15,12 @@ class Screen7 extends StatefulWidget {
 class _Screen7State extends State<Screen7> {
   int counter=1;
   int counter1=1;
-  List<bool>isClicked=[false,false,false,false];
+ int selected=-1;
+ void onclick(int index){
+   setState(() {
+     selected=index;
+   });
+ }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,12 +32,11 @@ class _Screen7State extends State<Screen7> {
             CarouselSlider(
               items: [
                 Image.asset('assets/img_14.png'),
-                Image.asset('assets/img_18.png'),
-                Image.asset('assets/img_19.png'),
+                Image.asset('assets/img_18.png',fit: BoxFit.cover,),
+                Image.asset('assets/img_19.png',fit:BoxFit.cover ,),
                 Image.asset('assets/img_14.png'),
 
               ], options:  CarouselOptions(
-
               height: 436.h,
               aspectRatio: 16/16,
               viewportFraction:1,
@@ -175,16 +180,12 @@ class _Screen7State extends State<Screen7> {
                   SizedBox(height: 20.h,),
                   Row(
                     children: [
-                      GestureDetector(onTap: (){
-                        setState(() {
-                          isClicked[0]=!isClicked[0];
-                        });
-                      },
+                      GestureDetector(onTap:()=> onclick(0),
                         child: Container(
                           width: 40.w,
                           height: 40.h,
                           decoration: ShapeDecoration(
-                            color: Colors.white,
+                            color:selected==0? Colors.green:Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(width: 1, color: Color(0xFFCACACA)),
                               borderRadius: BorderRadius.circular(10),
@@ -202,66 +203,73 @@ class _Screen7State extends State<Screen7> {
                         ),
                       ),
                       SizedBox(width: 20.w,),
-                      Container(
-                        width: 40.w,
-                        height: 40.h,
-                        decoration: ShapeDecoration(
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 1, color: Color(0xFFCACACA)),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        child: Center(
-                          child: Text('M', style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
 
-                          ),),
+                      GestureDetector(onTap: ()=> onclick(1),
+                        child: Container(
+                          width: 40.w,
+                          height: 40.h,
+                          decoration: ShapeDecoration(
+                            color:selected==1? Colors.green:Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(width: 1, color: Color(0xFFCACACA)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: Center(
+                            child: Text('M', style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+
+                            ),),
+                          ),
                         ),
                       ),
                       SizedBox(width: 20.w,),
-                      Container(
-                        width: 40.w,
-                        height: 40.h,
-                        decoration: ShapeDecoration(
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 1, color: Color(0xFFCACACA)),
-                            borderRadius: BorderRadius.circular(10),
+                      GestureDetector(onTap: ()=> onclick(2),
+                        child: Container(
+                          width: 40.w,
+                          height: 40.h,
+                          decoration: ShapeDecoration(
+                            color:selected==2? Colors.green:Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(width: 1, color: Color(0xFFCACACA)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                        ),
-                        child: Center(
-                          child: Text('L', style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
+                          child: Center(
+                            child: Text('L', style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
 
-                          ),),
+                            ),),
+                          ),
                         ),
                       ),
                       SizedBox(width: 20.w,),
-                      Container(
-                        width: 40.w,
-                        height: 40.h,
-                        decoration: ShapeDecoration(
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 1, color: Color(0xFFCACACA)),
-                            borderRadius: BorderRadius.circular(10),
+                      GestureDetector(onTap: ()=> onclick(3),
+                        child: Container(
+                          width: 40.w,
+                          height: 40.h,
+                          decoration: ShapeDecoration(
+                            color:selected==3? Colors.green:Colors.white,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(width: 1, color: Color(0xFFCACACA)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                        ),
-                        child: Center(
-                          child: Text('XL', style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
+                          child: Center(
+                            child: Text('XL', style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
 
-                          ),),
+                            ),),
+                          ),
                         ),
                       )
                     ],
