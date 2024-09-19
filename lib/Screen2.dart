@@ -12,6 +12,7 @@ class Screen2 extends StatefulWidget {
 }
 
 class _Screen2State extends State<Screen2> {
+  bool value=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,8 +160,18 @@ class _Screen2State extends State<Screen2> {
                     ),
                   ),
                   SizedBox(height: 20,),
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Row(
                     children: [
+                    Checkbox(
+                      activeColor: Colors.green,
+                      checkColor: Colors.white,
+                    value: this.value,
+                    onChanged: ( value) {
+                      setState(() {
+                        this.value = value!;
+                      });
+                    },
+                                      ),
                       Text('Remember Me',  style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
@@ -169,7 +180,7 @@ class _Screen2State extends State<Screen2> {
                         height: 0,
                       )),
                       Padding(
-                        padding:  EdgeInsets.only(right: 20.0),
+                        padding:  EdgeInsets.only(left:80,right: 20.0),
                         child: Text('Forgot password?',  style: TextStyle(
                           color: Color(0xFF0DA54B),
                           fontSize: 14,
