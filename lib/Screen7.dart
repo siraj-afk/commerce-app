@@ -19,6 +19,7 @@ class _Screen7State extends State<Screen7> {
   int counter1=1;
  int selected=-1;
   List<bool>isClicked=[false,false,false,false];
+
  void onclick(int index){
    setState(() {
      selected=index;
@@ -27,6 +28,9 @@ class _Screen7State extends State<Screen7> {
  int curntindex=0;
   @override
   Widget build(BuildContext context) {
+    List<String>image=['assets/img_14.png','assets/img_18.png','assets/img_19.png','assets/img_14.png'];
+
+    
     return Scaffold(
       backgroundColor: Colors.white,
       body:
@@ -80,59 +84,74 @@ class _Screen7State extends State<Screen7> {
             SizedBox(height: 30.h,),
             Padding(
               padding:  EdgeInsets.only(left: 20.0),
+              child: SizedBox(height: 80,
+                child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: 4,itemBuilder: (BuildContext context, int index) { return Container(
+                width: 80,
+                height: 80,
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 2, color:  Colors.white,),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: Image.asset('assets/img_14.png'),
+              ); },),),
+            ),
+            Padding(
+              padding:  EdgeInsets.only(left: 20.0),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 2, color:  Colors.white,),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Image.asset('assets/img_14.png'),
-                    ),
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 2, color: Color(0xEF7AF97A)),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Image.asset('assets/img_18.png'),
-                    ),
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 2, color: Colors.white),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Image.asset('assets/img_19.png'),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.only(right: 15.0),
-                      child: Container(
-                        width: 80,
-                        height: 80,
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 2, color: Colors.white),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        child: Image.asset('assets/img_15.png'),
-                      ),
-                    ),
-                  ],
-                  ),
+                  // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // children: [
+                  //   Container(
+                  //     width: 80,
+                  //     height: 80,
+                  //     decoration: ShapeDecoration(
+                  //       shape: RoundedRectangleBorder(
+                  //         side: BorderSide(width: 2, color:  Colors.white,),
+                  //         borderRadius: BorderRadius.circular(10),
+                  //       ),
+                  //     ),
+                  //     child: Image.asset('assets/img_14.png'),
+                  //   ),
+                  //   Container(
+                  //     width: 80,
+                  //     height: 80,
+                  //     decoration: ShapeDecoration(
+                  //       shape: RoundedRectangleBorder(
+                  //         side: BorderSide(width: 2, color: Color(0xEF7AF97A)),
+                  //         borderRadius: BorderRadius.circular(10),
+                  //       ),
+                  //     ),
+                  //     child: Image.asset('assets/img_18.png'),
+                  //   ),
+                  //   Container(
+                  //     width: 80,
+                  //     height: 80,
+                  //     decoration: ShapeDecoration(
+                  //       shape: RoundedRectangleBorder(
+                  //         side: BorderSide(width: 2, color: Colors.white),
+                  //         borderRadius: BorderRadius.circular(10),
+                  //       ),
+                  //     ),
+                  //     child: Image.asset('assets/img_19.png'),
+                  //   ),
+                  //   Padding(
+                  //     padding:  EdgeInsets.only(right: 15.0),
+                  //     child: Container(
+                  //       width: 80,
+                  //       height: 80,
+                  //       decoration: ShapeDecoration(
+                  //         shape: RoundedRectangleBorder(
+                  //           side: BorderSide(width: 2, color: Colors.white),
+                  //           borderRadius: BorderRadius.circular(10),
+                  //         ),
+                  //       ),
+                  //       child: Image.asset('assets/img_15.png'),
+                  //     ),
+                  //   ),
+                  // ],
+                  // ),
                   SizedBox(height: 20.h,),
                   Row(
                     children: [
