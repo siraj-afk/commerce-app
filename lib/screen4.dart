@@ -12,6 +12,7 @@ class Screen4 extends StatefulWidget {
 }
 
 class _Screen4State extends State<Screen4> {
+  List<bool>isClicked=[false,false,false,false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -387,8 +388,15 @@ class _Screen4State extends State<Screen4> {
                                                       )
                                                     ],
                                                   ),
-                                                  child: Icon(Icons.favorite_border)),
-                                            )
+                                                  child: GestureDetector(onTap: (){
+                                                    setState(() {
+                                                      isClicked[0]=!isClicked[0];
+                                                    });
+                                                  },
+                                                      child:
+                                                  Icon(isClicked[0]==false?Icons.favorite_border:Icons.favorite,
+                                                      color: isClicked[0]==false?Colors.black:Colors.red)))),
+
 
                                           ],
                                         ),

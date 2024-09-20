@@ -10,7 +10,7 @@ class _Screen5State extends State<Screen5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-backgroundColor: Colors.green,
+backgroundColor: Colors.white70,
     );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'Screen8.dart';
 class Screen7 extends StatefulWidget {
@@ -16,11 +18,13 @@ class _Screen7State extends State<Screen7> {
   int counter=1;
   int counter1=1;
  int selected=-1;
+  List<bool>isClicked=[false,false,false,false];
  void onclick(int index){
    setState(() {
      selected=index;
    });
  }
+ int curntindex=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,27 +33,49 @@ class _Screen7State extends State<Screen7> {
       SingleChildScrollView(
         child: Column(
           children: [
-            CarouselSlider(
-              items: [
-                Image.asset('assets/img_14.png'),
-                Image.asset('assets/img_18.png',fit: BoxFit.cover,),
-                Image.asset('assets/img_19.png',fit:BoxFit.cover ,),
-                Image.asset('assets/img_14.png'),
+            Stack(
+              children: [
+                CarouselSlider(
+                  items: [
+                    Image.asset('assets/img_14.png'),
+                    Image.asset('assets/img_18.png',fit: BoxFit.cover,),
+                    Image.asset('assets/img_19.png',fit:BoxFit.cover ,),
+                    Image.asset('assets/img_14.png'),
 
-              ], options:  CarouselOptions(
-              height: 436.h,
-              aspectRatio: 16/16,
-              viewportFraction:1,
-              initialPage: 0,
-              enableInfiniteScroll: true,
-              reverse: false,
-              autoPlay: false,
 
-              enlargeCenterPage: true,
-              enlargeFactor: 1.8,
+                  ], options:  CarouselOptions(
+                  height: 436.h,
+                  aspectRatio: 16/16,
+                  viewportFraction:1,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: false,
 
-              scrollDirection: Axis.horizontal,
-            ),
+                  enlargeCenterPage: true,
+                  enlargeFactor: 1.8,
+
+                  scrollDirection: Axis.horizontal,onPageChanged: (index, reason) {
+                    setState(() {
+                      curntindex=index;
+                    });
+                  },
+                ),
+                ),
+                Padding(
+                  padding:  EdgeInsets.only(top: 400.0.h,left: 190.w),
+                  child: AnimatedSmoothIndicator(
+                    activeIndex: curntindex,
+                    count: 4,
+                    effect: WormEffect(
+                        dotColor: Color(0xFFDEDBDB),
+                        dotHeight: 10.h,
+                        dotWidth: 10.w,
+                        activeDotColor: Color(0xFF0DA54B)
+                    ),
+                  ),
+                )
+              ],
             ),
             SizedBox(height: 30.h,),
             Padding(
@@ -63,7 +89,7 @@ class _Screen7State extends State<Screen7> {
                       height: 80,
                       decoration: ShapeDecoration(
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 2, color: Colors.white),
+                          side: BorderSide(width: 2, color:  Colors.white,),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
@@ -185,7 +211,7 @@ class _Screen7State extends State<Screen7> {
                           width: 40.w,
                           height: 40.h,
                           decoration: ShapeDecoration(
-                            color:selected==0? Colors.green:Colors.white,
+                            color:selected==0? Color(0xEF7AF97A):Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(width: 1, color: Color(0xFFCACACA)),
                               borderRadius: BorderRadius.circular(10),
@@ -209,7 +235,7 @@ class _Screen7State extends State<Screen7> {
                           width: 40.w,
                           height: 40.h,
                           decoration: ShapeDecoration(
-                            color:selected==1? Colors.green:Colors.white,
+                            color:selected==1? Color(0xEF7AF97A):Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(width: 1, color: Color(0xFFCACACA)),
                               borderRadius: BorderRadius.circular(10),
@@ -232,7 +258,7 @@ class _Screen7State extends State<Screen7> {
                           width: 40.w,
                           height: 40.h,
                           decoration: ShapeDecoration(
-                            color:selected==2? Colors.green:Colors.white,
+                            color:selected==2? Color(0xEF7AF97A):Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(width: 1, color: Color(0xFFCACACA)),
                               borderRadius: BorderRadius.circular(10),
@@ -255,7 +281,7 @@ class _Screen7State extends State<Screen7> {
                           width: 40.w,
                           height: 40.h,
                           decoration: ShapeDecoration(
-                            color:selected==3? Colors.green:Colors.white,
+                            color:selected==3? Color(0xEF7AF97A):Colors.white,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(width: 1, color: Color(0xFFCACACA)),
                               borderRadius: BorderRadius.circular(10),

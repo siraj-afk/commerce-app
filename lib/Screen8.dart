@@ -13,6 +13,7 @@ class _Screen8State extends State<Screen8> {
   int counter=1;
   int counter1=1;
   int counter2=1;
+  List<bool>isClicked=[false,false,false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
