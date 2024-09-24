@@ -1,3 +1,4 @@
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 
 import 'Screen8.dart';
 class Screen7 extends StatefulWidget {
@@ -18,6 +20,7 @@ class _Screen7State extends State<Screen7> {
   int counter=1;
   int counter1=1;
  int selected=-1;
+ int select=0;
   List<bool>isClicked=[false,false,false,false];
 
  void onclick(int index){
@@ -40,14 +43,11 @@ class _Screen7State extends State<Screen7> {
             Stack(
               children: [
                 CarouselSlider(
-                  items: [
-                    Image.asset('assets/img_14.png'),
-                    Image.asset('assets/img_18.png',fit: BoxFit.cover,),
-                    Image.asset('assets/img_19.png',fit:BoxFit.cover ,),
-                    Image.asset('assets/img_14.png'),
+                  items:[
+            Image.asset(image[curntindex],fit: BoxFit.cover,)
 
-
-                  ], options:  CarouselOptions(
+],
+                   options:  CarouselOptions(
                   height: 436.h,
                   aspectRatio: 16/16,
                   viewportFraction:1,
@@ -62,6 +62,7 @@ class _Screen7State extends State<Screen7> {
                   scrollDirection: Axis.horizontal,onPageChanged: (index, reason) {
                     setState(() {
                       curntindex=index;
+                      select=index;
                     });
                   },
                 ),
@@ -70,7 +71,7 @@ class _Screen7State extends State<Screen7> {
                   padding:  EdgeInsets.only(top: 400.0.h,left: 190.w),
                   child: AnimatedSmoothIndicator(
                     activeIndex: curntindex,
-                    count: 4,
+                    count: image.length,
                     effect: WormEffect(
                         dotColor: Color(0xFFDEDBDB),
                         dotHeight: 10.h,
@@ -85,17 +86,26 @@ class _Screen7State extends State<Screen7> {
             Padding(
               padding:  EdgeInsets.only(left: 20.0),
               child: SizedBox(height: 80,
-                child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: 4,itemBuilder: (BuildContext context, int index) { return Container(
-                width: 80,
-                height: 80,
-                decoration: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color:  Colors.white,),
-                    borderRadius: BorderRadius.circular(10),
+                child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: image.length,
+                  itemBuilder: (BuildContext context, int index)
+                { return GestureDetector(onTap: (){
+                  setState(() {
+                    curntindex=index;
+                    select=index;
+                  });
+                },
+                  child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(width: 2, color:  Colors.white,),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                ),
-                child: Image.asset('assets/img_14.png'),
-              ); },),),
+                  child: Image.asset(image[index])
+                                ),
+                ); },),),
             ),
             Padding(
               padding:  EdgeInsets.only(left: 20.0),
