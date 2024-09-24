@@ -86,7 +86,7 @@ class _Screen7State extends State<Screen7> {
             Padding(
               padding:  EdgeInsets.only(left: 20.0),
               child: SizedBox(height: 80,
-                child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: image.length,
+                child: ListView.separated(scrollDirection: Axis.horizontal,itemCount: image.length,
                   itemBuilder: (BuildContext context, int index)
                 { return GestureDetector(onTap: (){
                   setState(() {
@@ -105,7 +105,7 @@ class _Screen7State extends State<Screen7> {
                   ),
                   child: Image.asset(image[index])
                                 ),
-                ); },),),
+                ); }, separatorBuilder: (BuildContext context, int index) { return SizedBox(width: 10.w,); },),),
             ),
             Padding(
               padding:  EdgeInsets.only(left: 20.0),
